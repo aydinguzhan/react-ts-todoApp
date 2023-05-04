@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.button {
+  width: 50px;
+  height: 50px;
+  border: 1px solid purple;
+  border-radius: 50%;
+  background-color: purple;
+  color: white;
+  font-size: x-large;
+  font-weight: 600;
+}
+.setTodo {
+  width: 350px;
+  height: 50px;
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid #ecec;
+  margin-right: 0.5rem;
+  transition: border 0.4s;
+}
+.setTodo:focus {
+  border-bottom: 3px solid purple;
+  font-size: x-large;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  list-style-type: upper-roman;
+}
+.list > li {
+  padding: 1em;
+  font-size: large;
+  font-weight: 700;
+}

@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import style from './App.module.css';
+import List from './components/List';
 
-function App() {
+
+const App: React.FunctionComponent = () => {
+  const [todo, setTodo] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
+  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
+    setTodo(e.target.value);
+    console.log(todos);
+  }
+
+  const onClick: React.MouseEventHandler<HTMLButtonElement> = (e): void => {
+    setTodos([...todos, todo]);
+    setTodo(" ")
+    console.log(todos)
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <h1><u> Todo List</u></h1>
+      <br />
+      <div className={style.app}>
+        <input className={style.setTodo} type="text" onChange={onChange} value={todo} />
+        <button className={style.button} onClick={onClick}> +</button>
+      </div>
+      <List todos={todos} />
     </div>
   );
 }
