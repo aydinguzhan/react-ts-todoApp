@@ -26,7 +26,8 @@ const App: React.FunctionComponent = () => {
         <input className={style.setTodo} type="text" onChange={onChange} value={todo} />
         <button className={style.button} onClick={onClick}> +</button>
       </div>
-      <List todos={todos} />
+      {todos.length === 0 ? <h4>Hiç Todo Yok..</h4> : <List todos={todos} />}
+
     </div>
   );
 }
